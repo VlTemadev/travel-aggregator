@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Туры</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <!-- Header Begin -->
+  <nav style="background-color: #1E1E1E;"class="navbar navbar-expand-lg sticky-top">
+      <div class="container">
+        <div style="width: 70%;" class="geo text-field text-field_floating-3">
+        <div class="text-field__input">
+           <input style="color: white; " type="search" class="search"data-search id="search" autocomplete="off" placeholder="chosee"/>
+
+        </div>
+      </div>
+        <div class="hidden-elem">
+          <span class="user-logo"><i class="fa-solid fa-plane"></i></span>
+        </div>
+        <span class="nav-togg" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"><i class="fa-solid fa-bars"></i>
+        </span>
+       
+        <div style="background-color: #1E1E1E;" class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel" style="font-size:30px;">Menu</h5>
+            <div data-bs-dismiss="offcanvas" aria-label="Close"><i style="font-size: 25px;"class="fa-solid fa-xmark"></i></div>
+          </div>
+          <div class="offcanvas-body">
+            <div style="font-size:25px">
+              <a class="dropdown-item" href="#">Favorite</a>
+              <a class="dropdown-item" href="#">About us</a>
+              <a class="dropdown-item" href="#">Lorem</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- Header end -->
+  <div class="container">
+        {% block content %}{% endblock %}
+        
+  </div>
+
+
+  <script type="text/javascript">
+        document.querySelector('[data-search]').addEventListener('keyup',filter);
+        function filter(){
+          var term = document.querySelector('[data-search]').value
+          var tag = document.querySelectorAll('[data-searchable]');
+          for (i=0;i<tag.length;i++){
+            if (tag[i].innerHTML.indexOf(term) !== -1){
+              tag[i].style.display = 'block';
+            } else {
+              tag[i].style.display = 'none';
+            }
+          }
+        }
+</script>
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

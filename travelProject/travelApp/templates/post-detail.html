@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Туры</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <!-- Header Begin -->
+    <nav style="background-color: #1E1E1E;"class="navbar navbar-expand-lg sticky-top">
+      <div class="container">
+        <div class="logn"><a class="back" width="100%" href="{% url 'category-list' %}"><i style="font-size: 30px;" class="fa-solid fa-arrow-left"></i></a>
+      </div>
+      
+    </div>
+  </nav>
+  <!-- Header end -->
+  
+  <div class="container">
+    <div class="post-datail">
+      <img class="pst_img" style="width: 100%" src="{{ post.postImage.url }}">
+      <span class="title">{{ post.title }}</span>
+      <small class="date">{{ post.postDate }}</small>
+      <p class="content">{{ post.content }}</p>
+      <hr>
+      <p class="sourse">Источник - {{ post.source }}</p>
+      <button type="button" class="btn btn-success mb-3"><a href="{{ post.buyUrl }}">Купить</a></button>
+    </div>
+  </div>
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

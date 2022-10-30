@@ -1,0 +1,21 @@
+{% extends "base.html" %} 
+{% load mptt_tags %}
+
+{% block title %}Список категорий{% endblock %}
+
+{% block content %}
+<nav style="--bs-breadcrumb-divider: '|';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+  {% recursetree object_list %}
+      <li class="breadcrumb-item">
+    <a class="category-hover" href="{{node.get_absolute_url}}">{{node.title}}</a>
+    {% if not node.is_leaf_node %}
+               
+    {% endif %}
+      </li>
+  {% endrecursetree %}
+  </ol>
+</nav>
+
+
+{% endblock %}
