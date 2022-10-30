@@ -1,8 +1,7 @@
 from django.contrib import admin
 from . import views
 from django.urls import path
-from .views import CategoryListView, PostByCategoryView, AboutListView
-
+from .views import CategoryListView, PostByCategoryView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', CategoryListView.as_view(), name='category-list'),
